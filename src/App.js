@@ -2,13 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 import { footer } from './component/footer';
 import { header } from './component/header';
-
 import { Register } from './component/Register';
 import { login} from './component/login';
+import {Home} from './component/home';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Home/>
+
+     /* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           this's snehal's code
@@ -21,7 +24,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header>*/
     </div>
   );
 }
