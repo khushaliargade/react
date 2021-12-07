@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-
+import { footer } from './component/footer';
+import { header } from './component/header';
 
 import { Register } from './component/Register';
 import { login} from './component/login';
