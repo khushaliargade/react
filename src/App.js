@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 
 
+import { Register } from './component/Register';
+import { login} from './component/login';
 function App() {
   return (
     <div className="App">
