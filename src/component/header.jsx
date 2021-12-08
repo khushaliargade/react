@@ -1,10 +1,11 @@
-// import React from 'react'
+import React from "react";
 
-// <html>
-//     <body>
-//         <p>This header file created by Snehal</p>
-//     </body>
-// </html>
-
-
-// export default App;
+export class Header extends React.Component {
+  
+    render()
+    {
+// function Header() {
+    return <h1>this is header file created by snehal</h1>
+}
+}
+ export default Header

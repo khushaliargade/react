@@ -1,10 +1,10 @@
-// import React from 'react'
+import React from "react";
 
-// <html>
-//     <body>
-//         <p>This footer file created by Snehal</p>
-//     </body>
-// </html>
+export class Footer extends React.Component {
 
-
-// export default App;
+    render() {
+        // function Footer() {
+        return <h1>this is footer file created by snehal</h1>
+    }
+}
+export default Footer

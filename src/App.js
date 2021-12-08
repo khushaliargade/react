@@ -1,17 +1,23 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import { footer } from './component/footer';
-import { header } from './component/header';
-import { Register } from './component/register';
-import { Login} from './component/login';
-import {Home} from './component/home';
+import { Footer } from './component/footer';
+import { Header } from './component/header';
+//import { Register } from './component/register';
+import { Login } from './component/login';
+import { Home } from './component/home';
 
 function App() {
   return (
     <div className="App">
       <Home />
       <Login></Login>
-{/* 
+      <Footer />
+      <Header/>
+      
+
+
+
+      {/* 
      /* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
