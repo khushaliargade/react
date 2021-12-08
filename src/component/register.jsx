@@ -1,7 +1,6 @@
-import React from "react";
-
-function register() {
-    return <h1>this is register document</h1>
-}
-
-export default register
+<html>
+    <body>
+        <h2>this is  register file created by khushali</h2>
+        <p>My First Paragraph.</p>
+    </body>
+</html>
