@@ -1,17 +1,10 @@
+import React from 'react';
 import './App.css';
-import { Login } from './pages/login';
-import { Register } from './pages/register';
+import { Routing } from './pages/componenets/routes';
 function App() {
   return (
     <div className="App">
-      <div class="row">
-        <div class="column">
-          <Register />
-        </div>
-        <div class="column">
-          <Login />
-        </div>
-      </div>
+      < Routing />
     </div>
   );
 }

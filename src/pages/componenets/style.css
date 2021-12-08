@@ -1,12 +1,20 @@
-  .column {
-    align-items: center;
-    width: 45%;
-  }
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 1.25em;
+  min-height: auto;
+}
+.aside {
+  grid-column: 1;
+  width:30%;
+  text-align: left;
+  padding-right: 50px;
+}
+.content {
+  grid-column: 2;
+  width:70%;
+  text-align: left;
+}
   .div-login{
     width:200px;
     height:300px;
@@ -25,7 +33,7 @@
     width: 50px;
     align-self: center;
 }
-input{
+.input{
     width: 95%;
     border: 1px solid #dbdbdb;
     padding: 5px;
@@ -35,7 +43,7 @@ input{
     box-shadow: none;
     font-family: 'Open Sans Condensed', sans-serif;
 }
-button{
+.button{
     width: 100%;
     margin: 5px 0;
     background-color: dodgerblue;
@@ -45,4 +53,24 @@ button{
     border: none;
     color: white;
     border-radius: 5px;
+}
+.link{
+  width: 100%;
+  float:left;
+  background-color: rgba(128, 128, 128, 0.856);
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding: 0px;
+  margin:10px;
+  font-weight: 800;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  
+}
+.footer-pin {
+  position: fixed;
+  width: 100%;
+  border-top: 2px solid royalblue;
+  left: 0;
+  bottom: 0;
 }
