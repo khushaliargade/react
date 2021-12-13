@@ -2,6 +2,8 @@ import React from "react";
 import { Header } from "./componenets/header";
 import { Footer } from "./componenets/footer";
 import { Navbar } from './componenets/navbar';
+import { Calendar } from "react-calendar";
+import "react-calendar/dist/Calendar.css"
 import "./componenets/style.css"
 export class Home extends React.Component {
     render() {
@@ -15,6 +17,11 @@ export class Home extends React.Component {
                         <Navbar />
                     </div>
                     <div class="content">
+                        <Calendar 
+                        defaultView ="month"
+                        showDoubleView
+                        
+                        />         
                         <h3>THIS IS HOME</h3>
                     </div>
                 </div>
