@@ -8,9 +8,9 @@ export class Register extends React.Component {
             <div>
                 <img src={registerImg} alt="" />
                 <form >
-                    <input type='email' name='email' placeholder='email...' required />
-                    <input type='password' name='pwd' placeholder='password...' required />
-                    <input type='password' name='pwd' placeholder='retype password...' required />
+                    <input type='email' name='email' placeholder='email...' required /><tr/>
+                    <input type='password' name='pwd' placeholder='password...' required /><tr/>
+                    <input type='password' name='pwd' placeholder='retype password...' required /><tr/>
                     <Link to="/home" class="button">Register</Link>
                 </form>
             </div>

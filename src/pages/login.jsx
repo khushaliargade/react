@@ -8,8 +8,8 @@ export class Login extends React.Component {
             <div>
                 <img src={loginImg} alt="" />
                 <form>
-                    <input type='email' name='email' placeholder='email...' required />
-                    <input type='password' name='pwd' placeholder='password...' required />
+                    <input type='email' name='email' placeholder='email...' required /><tr/>
+                    <input type='password' name='pwd' placeholder='password...' required /><tr/>
                     <Link to="/home" class="button">Login</Link>
                 </form>
             </div>
