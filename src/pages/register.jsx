@@ -1,36 +1,40 @@
 import React, { useState } from 'react';
-//import Register from "./componenets/register"
 import registerImg from "../assets/register.png"
 import "./componenets/style.css"
 import { Link } from "react-router-dom";
-//function  Register() {
+function  Register() {
+     
+    const [firstname,setFirstName] = useState("")
+    const [lastname,setLastName] = useState("")
+    const [email,setEmail] = useState("")
+    const [password,setPassword] = useState("")
 
+   async function  signUp()
+    {
+        let item = {firstname,lastname,email,password}
+        console.log(item)
 
-const Register = () => {
-
-    const [user, setUser] = useState({
-
-        firstname: "", lastname: "", email: "", password: "", password: ""
-    });
-    let name, value;
-    const handleInputs = (e) => {
-        console.log(e);
-        name = e.target.name;
-        value = e.target.value;
-
-        setUser({ ...user, [name]: value })
+       let result= await fetch("http://localhost:8080/test/hello/save",{
+            method:'POST',
+            body:JSON.stringify(item),
+            headers:{
+                "Content-Type":'application/json',
+                "Accept":'application/json'
+            }
+        })
+        result= await result.json()
+        console.log("result",result)
     }
     return (
 
         <div>
             <img src={registerImg} alt="" />
             <form >
-                <input type='firstname' name='Firstname'  onChange={handleInputs} placeholder='enter your first name...' required /><tr />
-                <input type='lastname' name='Lastname' value={user.lastname} onChange={handleInputs} placeholder='enter your last name...' required /><tr />
-                <input type='email' name='email' value={user.email} onChange={handleInputs} placeholder='email...' required /><tr />
-                <input type='password' name='pwd' value={user.password} onChange={handleInputs} placeholder='password...' required /><tr />
-                <input type='password' name='retypepwd' value={user.password} onChange={handleInputs} placeholder='retype password...' required /><tr />
-                <Link to="/home" class="button">Register</Link>
+                <input type='firstname' name='Firstname' value={firstname} onChange={(e) => setFirstName(e.target.value)} placeholder='enter your first name...' required /><tr />
+                <input type='lastname' name='Lastname' value={lastname} onChange={(e) => setLastName(e.target.value)}  placeholder='enter your last name...' required /><tr />
+                <input type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)}  placeholder='email...' required /><tr />
+                <input type='password' name='pwd' value={password} onChange={(e) => setPassword(e.target.value)}  placeholder='password...' required /><tr />
+                <button onClick= {signUp} className="btn btn primary"> Register </button>
             </form>
         </div>
 
