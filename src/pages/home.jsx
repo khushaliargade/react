@@ -11,6 +11,7 @@ import { Navbar } from './componenets/navbar';
 import "./componenets/style.css"
 
 import UserTable from "./componenets/usertable";
+import Register from "./register";
 export class Home extends React.Component {
     render() {
         return (
@@ -29,6 +30,7 @@ export class Home extends React.Component {
 
                    
                         <UserTable />
+                    
 
                 </div>
                 <Footer />
