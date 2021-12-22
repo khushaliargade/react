@@ -19,7 +19,7 @@ export class Home extends React.Component {
           </div>
           <div class="content">
             <Usertable />
-            //<h5>THIS IS HOME</h5>
+            <h5>THIS IS HOME</h5>
             
           </div>
         </div>
