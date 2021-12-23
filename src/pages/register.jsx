@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import registerImg from "../assets/register.png"
 import "./componenets/style.css"
+//import { Link ,Redirect} from "react-router-dom";
+//import { useHistory } from 'react-router-dom';
 function Register() {
 
+   // const Redirect = () => {
+       // return(
+        //<Redirect to = "/"/>
+        //)
+        
+        
+    //let history = useHistory();
     const [firstname, setFirstName] = useState("")
     const [lastname, setLastName] = useState("")
     const [email, setEmail] = useState("")
@@ -30,10 +39,18 @@ function Register() {
                 <input type='lastname' name='Lastname' value={lastname} onChange={(e) => setLastName(e.target.value)} placeholder='enter your last name...' required />
                 <input type='email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='email...' required />
                 <input type='password' name='pwd' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password...' required />
-                <button onClick={signUp} className="btn btn primary"> Register </button>
+                <button onClick={signUp}/* onClick=  {() => {history.push("/home");}} */ className="btn btn primary"> Register </button>
+                
+                
             </form>
+
+
         </div>
 
     )
 }
 export default Register;
+
+
+
+
