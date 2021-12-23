@@ -3,15 +3,10 @@ import React from "react";
 import { Header } from "./componenets/header";
 import { Footer } from "./componenets/footer";
 import { Navbar } from './componenets/navbar';
-//import Calendar from 'react-calendar'
-//import Hello from './componenets/Hello'
-//import Func from './componenets/Func'
-//import Classc from './componenets/Classc'
-//import Message from './componenets/Message'
 import "./componenets/style.css"
 
 import UserTable from "./componenets/usertable";
-import Register from "./register";
+
 export class Home extends React.Component {
     render() {
         return (
@@ -24,17 +19,11 @@ export class Home extends React.Component {
                         <Navbar />
                     </div>
                     <div class="content">
-
-
                         <h3>THIS IS HOME</h3>
-
-                   
                         <UserTable />
-                    
-
+                    </div>
+                    <Footer />
                 </div>
-                <Footer />
-            </div>
             </div>
         )
     }
