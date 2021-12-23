@@ -5,6 +5,7 @@ import { Navbar } from './componenets/navbar';
 import { Calendar } from "react-calendar";
 import "react-calendar/dist/Calendar.css"
 import "./componenets/style.css"
+import UserTable from "./componenets/usertable";
 export class Home extends React.Component {
     render() {
         return (
@@ -23,9 +24,10 @@ export class Home extends React.Component {
                         
                         />         
                         <h3>THIS IS HOME</h3>
+                        <UserTable />
                     </div>
+                    <Footer />
                 </div>
-                <Footer />
             </div>
         )
     }
