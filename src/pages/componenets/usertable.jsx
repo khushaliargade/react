@@ -6,6 +6,7 @@ import { DataGrid } from '@material-ui/data-grid'
 
 
 const DeleteEmp =(id) =>{
+  console.log(id)
   fetch("http://localhost:8083/test/hello/delete/"+id)
   console.log("**deleted**");
 };
@@ -20,7 +21,7 @@ const columns = [
     headerName:'DeleteAction',
     renderCell: (params) => {
         return (
-          <button onClick={DeleteEmp}>Delete</button>
+          <button onClick={DeleteEmp(params)}>Delete</button>
         );
       }}
     
