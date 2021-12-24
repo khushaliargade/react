@@ -1,22 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css"
-export function Navbar(props) {
-  
-    return (
+export class Navbar extends React.Component {
+    render() {
+        return (
             <div>
                 <ul>
                     <li>
                         <Link to="/" class="link">Login</Link>
                     </li>
                     <li>
-                        <Link onClick={props.register}>
-                            {this.props.status ? "Home" : "Register"}
-                        </Link>
-
+                        <Link to="/register" class="link">Register</Link>
                     </li>
                 </ul>
             </div>
         )
     }
+}
 
