@@ -10,3 +10,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+button{
+  padding:10px,30px,10px;
+  background-color: rgb(205,205,207);
+  color:white;
+
+}
+.danger{
+  background-color: red;
+}
