@@ -16,7 +16,7 @@ function Register() {
         let item = { firstname, lastname, email, password }
         console.log("***** THIS IS ITEM ******" + { item })
 
-        if (firstname !=='' && lastname !=='' && email !=='' && password !== '') {
+        if (firstname !== '' && lastname !== '' && email !== '' && password !== '') {
             navigate('/home');
             let result = await fetch("http://localhost:8080/test/hello/save",
                 {
@@ -27,13 +27,11 @@ function Register() {
                         "Accept": 'application/json'
 
                     }
-                    
-                })  
+                })
             result = await result.json()
             console.log("result", result);
-            }       
+        }
     }
-
     return (
         <div>
             <img src={registerImg} alt="" />
@@ -44,10 +42,7 @@ function Register() {
                 <input type='password' name='pwd' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='password...' required />
                 <button onClick={signUp} className="btn btn primary"> Register </button>
             </form>
-
-
         </div>
-
     )
 }
 export default Register;
