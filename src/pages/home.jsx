@@ -6,7 +6,6 @@ import { Navbar } from './componenets/navbar';
 import "react-calendar/dist/Calendar.css"
 import "./componenets/style.css"
 import UserTable from "./componenets/usertable";
-//import { Routes } from "react-router-dom";
 export class Home extends React.Component {
     render() {
         return (
@@ -22,8 +21,7 @@ export class Home extends React.Component {
                         {/* <Calendar 
                         defaultView ="month"
                         showDoubleView
-                        
-                        />          */}
+                        />*/}
                         <h3>THIS IS HOME</h3>
                         <UserTable />
                     </div>
