@@ -2,8 +2,13 @@
 import React, { useState, useEffect } from 'react'
 //import {Button,Card} from 'react-bootstrap'
 import { DataGrid } from '@material-ui/data-grid'
-import axios from 'axios'
-import deleteEmp from './delete';
+//import axios from 'axios'
+
+
+const DeleteEmp =(id) =>{
+  fetch("http://localhost:8083/test/hello/delete/"+id)
+  console.log("**deleted**");
+};
 
 const columns = [
     { field: 'id', headerName: 'ID' },
@@ -15,16 +20,10 @@ const columns = [
     headerName:'DeleteAction',
     renderCell: (params) => {
         return (
-          <button
-            variant="contained"
-          
-            onClick={<deleteEmp/>}
-          >
-            Delete
-          </button>
+          <button onClick={DeleteEmp}>Delete</button>
         );
       }}
-    //{ field:'action',headerName:'Action'}
+    
     
 ]
 const UserTable = () => {
@@ -34,38 +33,31 @@ const UserTable = () => {
             .then((data) => data.json())
             .then((data) => setTableData(data))
           })
-            
-//   const[message,updateMassage]=useState("")
-// const deleteEmp =(id) =>{
-// axios.delete("http://localhost:8083/test/hello/delete/"+id)
-// .then(response=>{
-//     updateMassage("delete successfully..!!!");
-// })
-// }
-            
+        //}      
   
-// for delete data from table
+//  const DeleteEmp =(id) =>{
+//   const[message,updateMassage]=useState("")
+//   useEffect(() => {
+//     fetch("http://localhost:8083/test/hello/delete/"+id)
+//         .then((data) => data.json())
+//         .then((data) => updateMassage(data))
+//       })
+        
+//     }
 
-// const[message,updateMassage]=useState("")
-// const deleteEmp =(id) =>{
-// axios.delete("http://localhost:8083/test/hello/delete/"+id)
-// .then(response=>{
-//     updateMassage("delete successfully..!!!");
-// })
-// }
+                    
+  
 
-
-
-
-
-    return (
+return (
         <div style={{ height: 700, width: '100%' }}>
             <h2>This is user table</h2>
             <DataGrid
                 rows={tableData}
                 columns={columns}
+                
                 pageSize={10}
                 checkboxSelection />
+                
         </div>
       )
     } 
