@@ -1,26 +1,36 @@
 import React, { useState } from 'react';
 import registerImg from "../assets/register.png"
-import "./componenets/style.css"
+import "./componenets/style.css";
+import { useNavigate } from 'react-router-dom';
+
 function Register() {
 
     const [firstname, setFirstName] = useState("")
     const [lastname, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate();
+
     async function signUp() {
+
         let item = { firstname, lastname, email, password }
         console.log("***** THIS IS ITEM ******" + { item })
-        let result = await fetch("http://localhost:8080/test/hello/save",
-            {
-                method: 'POST',
-                body: JSON.stringify(item),
-                headers: {
-                    "Content-Type": 'application/json',
-                    "Accept": 'application/json'
-                }
-            })
-        result = await result.json()
-        console.log("result", result)
+
+        if (firstname !== '' && lastname !== '' && email !== '' && password !== '') {
+            navigate('/home');
+            let result = await fetch("http://localhost:8080/test/hello/save",
+                {
+                    method: 'POST',
+                    body: JSON.stringify(item),
+                    headers: {
+                        "Content-Type": 'application/json',
+                        "Accept": 'application/json'
+
+                    }
+                })
+            result = await result.json()
+            console.log("result", result);
+        }
     }
     return (
         <div>
@@ -33,7 +43,7 @@ function Register() {
                 <button onClick={signUp} className="btn btn primary"> Register </button>
             </form>
         </div>
-
     )
 }
 export default Register;
+
