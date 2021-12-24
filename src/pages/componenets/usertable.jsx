@@ -16,7 +16,7 @@ const columns = [
     { field: 'firstname', headerName: 'First Name' },
     { field: 'lastname', headerName: 'Last Name' },
     { field: 'email', headerName: 'Email' },
-    { field: 'password', headerName: 'Password' },
+    { field: 'password', headerName: 'Password' }
     {field:'Action',
     headerName:'DeleteAction',
     renderCell: (params) => {
