@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@material-ui/data-grid'
- function deleteUser(id)
- {
-   //alert(id);
-   fetch('http://localhost:8080/test/hello/delete/${id}', {
-     method:"Delete"
-   }).then((result)=>{
-     result.json().then((resp)=>{
-       console.warn(resp)
-       console.log(id)
-     })
-   })
- }
+//import { getUsers } from './usertableAPI';
 
+const  HandleDelete=(id) =>{
+  let url='http://localhost:8080/test/hello/delete/'+id;
+  fetch(url)
+  .then(resp=>resp.json())
+  .then(resp=>UserTable())
+}
 const columns = [
     { field: 'id', headerName: 'ID' },
     { field: 'firstname', headerName: 'First Name' },
@@ -24,9 +19,9 @@ const columns = [
     renderCell: (params) => {
        return (
         <button 
-        color="primary"
+        color= "primary"
         variant="contained"
-        onClick={console.log(params)}
+        onClick={()=>HandleDelete(params.id)}
         >Delete</button>
         
        );
@@ -38,6 +33,7 @@ const columns = [
 const UserTable = () => {
     const [tableData, setTableData] = useState([])
     useEffect(() => {
+      
       if(tableData=='')
       {
         fetch("http://localhost:8080/test/hello/getusers")
