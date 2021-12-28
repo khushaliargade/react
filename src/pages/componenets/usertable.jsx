@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@material-ui/data-grid'
-//import { getUsers } from './usertableAPI';
+
 
 const  HandleDelete=(id) =>{
   let url='http://localhost:8080/test/hello/delete/'+id;
@@ -27,20 +27,16 @@ const columns = [
        );
        }
     }
-    
-    
 ]
 const UserTable = () => {
     const [tableData, setTableData] = useState([])
     useEffect(() => {
-      
       if(tableData=='')
       {
         fetch("http://localhost:8080/test/hello/getusers")
       
             .then((data) => data.json())
-            .then((data) => setTableData(data))
-      }
+            .then((data) => setTableData(data))}
           })
     
 
