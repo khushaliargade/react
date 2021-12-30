@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@material-ui/data-grid'
 
+const UserTable = () => {
+  const [tableData, setTableData] = useState([])
+  useEffect(() => {
+    if(tableData=='')
+    {
+      fetch("http://localhost:8080/test/hello/getusers")
+    
+          .then((data) => data.json())
+          .then((data) => setTableData(data))}
+        })
+  
 
 //delelte
 const  HandleDelete=(id) =>{
@@ -28,6 +39,7 @@ const columns = [
     headerName:'DeleteAction',
     renderCell: (params) => {
        return (
+
         <button style={{backgroundcolor: "red" ,color:"black"}}
         
         onClick={()=>HandleDelete(params.id)}
@@ -38,13 +50,13 @@ const columns = [
     },
 
       {field:'Action2',
-      headerName:'DeleteUpdate',
-    renderCell: (id) => {
+      headerName:'Update',
+    renderCell: () => {
        return (
         <button 
         color= "primary"
         variant="contained"
-        onClick={()=>HandleUpdate(id)}
+        onClick={()=>HandleUpdate()}
         >Update</button>
         
        );
@@ -52,17 +64,6 @@ const columns = [
     }
 
 ]
-const UserTable = () => {
-    const [tableData, setTableData] = useState([])
-    useEffect(() => {
-      if(tableData=='')
-      {
-        fetch("http://localhost:8080/test/hello/getusers")
-      
-            .then((data) => data.json())
-            .then((data) => setTableData(data))}
-          })
-    
 
 return (
         <div style={{ height: 700, width: '100%' }}>
