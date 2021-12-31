@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@material-ui/data-grid'
+import { Link } from "react-router-dom";
 
 const UserTable = () => {
   const [tableData, setTableData] = useState([])
@@ -45,11 +46,12 @@ const columns = [
     headerName:'UpdateAction',
     renderCell: () => {
        return (
-        <button 
-        color= "primary"
-        variant="contained"
-        onClick={()=>HandleUpdate()}
-        >Update</button>
+      //   <button 
+      //   color= "primary"
+      //   variant="contained"
+      //  onClick={()=> <Link to="/update" class="button">Login</Link>}
+      //   >Update</button>
+      <Link to="/update" class="button">Update</Link>
  );
        }
     }
@@ -57,6 +59,7 @@ const columns = [
 return (
         <div style={{ height: 700, width: '100%' }}>
             <h2>This is user table</h2>
+            
             <DataGrid
                 rows={tableData}
                 columns={columns}

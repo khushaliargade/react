@@ -3,13 +3,13 @@ import { Component } from 'react/cjs/react.production.min';
 import './App.css';
 import { Routing } from './pages/componenets/routes';
 class App extends Component {
-
-  render() {
+ render() {
     return (
       <div className="App">
         {< Routing />}
-      </div>
-    );
+ </div>
+      );
+      
   }
 };
 export default App;
