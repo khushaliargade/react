@@ -6,6 +6,11 @@ import { Navbar } from './componenets/navbar';
 import "react-calendar/dist/Calendar.css"
 import "./componenets/style.css"
 import UserTable from "./componenets/usertable";
+<<<<<<< Updated upstream
+=======
+import { Button, Grid } from "@material-ui/core";
+//import ListUserComponent from "./componenets/ListUserComponent";
+>>>>>>> Stashed changes
 export class Home extends React.Component {
     render() {
         return (
@@ -21,7 +26,13 @@ export class Home extends React.Component {
                         {/* <Calendar 
                         defaultView ="month"
                         showDoubleView
+<<<<<<< Updated upstream
                         />*/}
+=======
+                        
+                        />          */}
+                    
+>>>>>>> Stashed changes
                         <h3>THIS IS HOME</h3>
                         <UserTable />
                     </div>
