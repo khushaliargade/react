@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@material-ui/data-grid'
 import { Link } from "react-router-dom";
-
+import FormDialog from './dialog'
+import Button from '@material-ui/core/Button';
 const UserTable = () => {
   const [tableData, setTableData] = useState([])
   useEffect(() => {
@@ -17,12 +18,24 @@ const  HandleDelete=(id) =>{
   .then(resp=>resp.json())
   .then(resp=>UserTable())
 }
-const HandleUpdate=()=>{
-  let url='http://localhost:8080/test/hello/update';
-  fetch(url)
-  .then(resp=>resp.json())
-  .then(resp=>UserTable())
-}
+const [open, setOpen] = React.useState(true);
+  const [formData, setFormData] = useState({ firstname: "", lastname: "", email: "", password: "" })
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  
+  //update
+  const HandleUpdate = (oldData) => {
+    console.log(oldData)
+    handleClickOpen()
+
+
+  }
 const [firstname, setID] = useState("")
 const columns = [
     { field: 'id', headerName: 'ID' },
@@ -44,14 +57,14 @@ const columns = [
     },
     {field:'ActionUpdate',
     headerName:'UpdateAction',
-    renderCell: () => {
+    renderCell: (params) => {
        return (
-      //   <button 
-      //   color= "primary"
-      //   variant="contained"
-      //  onClick={()=> <Link to="/update" class="button">Login</Link>}
-      //   >Update</button>
-      <Link to="/update" class="button">Update</Link>
+        <button 
+        color= "primary"
+        variant="contained"
+      onClick={ HandleUpdate(params.data)}
+         >Update</button>
+      
  );
        }
     }
@@ -59,13 +72,13 @@ const columns = [
 return (
         <div style={{ height: 700, width: '100%' }}>
             <h2>This is user table</h2>
-            
+            <Button onClick={handleClickOpen}>Add User</Button>
             <DataGrid
                 rows={tableData}
                 columns={columns}
                 pageSize={10}
                 checkboxSelection />  
-                
+                <FormDialog open={open} handleClose={handleClose} data={formData} />
         </div>
       )
     } 

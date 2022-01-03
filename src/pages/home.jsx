@@ -6,7 +6,7 @@ import { Navbar } from "./componenets/navbar";
 //import "react-calendar/dist/Calendar.css"
 import UserTable from "./componenets/usertable";
 //import ListUserComponent from "./componenets/ListUserComponent";
-import update from './componenets/update'
+//import Update from './componenets/update'
 export class Home extends React.Component {
     render() {
         return (
@@ -17,7 +17,7 @@ export class Home extends React.Component {
                 <div class="grid">
                     <div class="aside">
                         <Navbar />
-                        {<update/> }
+                    {/* <Update/> */}
                     </div>
                     <div class="content">
                         {/* <Calendar 
