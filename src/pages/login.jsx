@@ -20,17 +20,17 @@ function Login() {
             },
 
         });
+        
         result = await result.json();
         console.log(result);
         console.log("data");
         if (result.name) {
-            localStorage.setItem("user", JSON.stringify(result));
+           localStorage.setItem("user", JSON.stringify(result));
             navigate("/home")
 
         } else {
-            alert("enter correct")
+           alert("enter correct")
         }
-
     }
     return (
         <div>

@@ -6,13 +6,16 @@ import { Navbar } from './componenets/navbar';
 import "react-calendar/dist/Calendar.css"
 import "./componenets/style.css"
 import UserTable from "./componenets/usertable";
+import Hello from "./componenets/Hello";
 export class Home extends React.Component {
     render() {
         return (
             <div>
                 <div>
                     <Header />
-                </div>     
+                </div> 
+                <div>
+                    <Hello/></div>    
             <div className="grid">
                     <div className="aside">
                         <Navbar />

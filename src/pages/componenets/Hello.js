@@ -1,9 +1,25 @@
-/*import React from 'react'
-const Hello = () => {
-return (
-    <div>
-        <h1>Hello World!!!</h1>
-    </div>
-)
+import React , { Component } from 'react';
+
+class App extends Component {
+  constructor() {
+    super();
+    console.log(' constructor')
+
+  }
+  static getDerivedStateFromProps(){
+    console.log(' getDerivedStateFromProps')
+    return{};
+
 }
-export default Hello*/
+ 
+componentDidMount(){
+    console.log(' componentDidMount')   
+}
+
+  render() {
+    console.log(' render')
+    return (<p>Heloo</p>);
+  }
+}
+
+export default App;
