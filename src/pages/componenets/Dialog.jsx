@@ -7,8 +7,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {TextField} from '@material-ui/core';
 
-export default function FormDialog({open , handleClose ,data}) {
-  const {id,firstname , lastname,email,password}=data
+export default function FormDialog({open , handleClose ,data ,onChange ,handleFormSubmit}) {
+  const {firstname , lastname,email,password}=data
 
   return (
     <div>
@@ -19,19 +19,19 @@ export default function FormDialog({open , handleClose ,data}) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description">
       
-        <DialogTitle id="alert-dialog-title">Update User</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Create New User</DialogTitle>
       
         <DialogContent>
           <form>
-            <TextField id ="firstname" value={firstname} placeholder='enter firstname' label ='FirstName' variant='outlined' margin='dense' fullWidth/>
-            <TextField id ="lastname" value={lastname}  placeholder='enter lastname' label ='LastName'   variant='outlined' margin='dense' fullWidth/>
-            <TextField id ="email" value={email}  placeholder='enter email' label ='Email'  variant='outlined' margin='dense'  fullWidth/>
-            <TextField id ="password" value={password}  placeholder='enter password' label ='Password'  variant='outlined' margin='dense' fullWidth/>
+            <TextField id ="firstname" value={firstname} onChange={e =>onChange(e)} placeholder='enter firstname' label ='FirstName' variant='outlined' margin='dense' fullWidth/>
+            <TextField id ="lastname" value={lastname} onChange={e =>onChange(e)} placeholder='enter lastname' label ='LastName'   variant='outlined' margin='dense' fullWidth/>
+            <TextField id ="email" value={email} onChange={e =>onChange(e)} placeholder='enter email' label ='Email'  variant='outlined' margin='dense'  fullWidth/>
+            <TextField id ="password" value={password} onChange={e =>onChange(e)}  placeholder='enter password' label ='Password'  variant='outlined' margin='dense' fullWidth/>
           </form>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} variant='outlined' >Cancel</Button>
-          <Button onClick={handleClose} variant='outlined' >Update</Button>  
+          <Button onClick={()=>handleFormSubmit()} variant='outlined' >Submit</Button>  
         </DialogActions>
       </Dialog>
     </div>

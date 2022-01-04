@@ -8,6 +8,8 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+
+    
     async function Log() {
         console.warn("data", email, password)
         let item = { email, password }
