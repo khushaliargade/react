@@ -34,7 +34,7 @@ class Hello extends Component {
 
     render() {
         console.log(' render', this.state)
-        return (<p>Heloo {this.state.color}</p>);
+        return (<p>Lifecycle {this.state.color}</p>);
     }
 }
 

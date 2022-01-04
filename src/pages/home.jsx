@@ -7,6 +7,7 @@ import "react-calendar/dist/Calendar.css"
 import "./componenets/style.css"
 import UserTable from "./componenets/usertable";
 import Hello from "./componenets/Hello";
+import Lifecycle from "./componenets/Lifecycle";
 export class Home extends React.Component {
     render() {
         return (
