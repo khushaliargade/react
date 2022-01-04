@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import {TextField} from '@material-ui/core';
 
 export default function FormDialog({open , handleClose ,data ,onChange ,handleFormSubmit}) {
-  const {firstname , lastname,email,password}=data
+  const {firstname, lastname,email,password }=data
 
   return (
     <div>
@@ -19,8 +19,8 @@ export default function FormDialog({open , handleClose ,data ,onChange ,handleFo
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description">
       
-        <DialogTitle id="alert-dialog-title">Create New User</DialogTitle>
-      
+        { <DialogTitle id="alert-dialog-title">Create New User</DialogTitle>
+       }
         <DialogContent>
           <form>
             <TextField id ="firstname" value={firstname} onChange={e =>onChange(e)} placeholder='enter firstname' label ='FirstName' variant='outlined' margin='dense' fullWidth/>

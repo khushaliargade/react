@@ -3,10 +3,13 @@ import { DataGrid } from '@material-ui/data-grid'
 import FormDialog from './Dialog'
 import Button from '@material-ui/core/Button';
 
+
+
+const initialValue={ firstname: "", lastname: "", email: "", password: "" }
 const UserTable = () => {
   const [tableData, setTableData] = useState([])
   const [open, setOpen] = useState(false);
-  const [formData, setFormData] = useState({ firstname: "", lastname: "", email: "", password: "" })
+  const [formData, setFormData] = useState( initialValue)
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -32,10 +35,20 @@ const UserTable = () => {
   }
   
   //update
-  const HandleUpdate = (oldData) => {
-    console.log(oldData)
+  const handleUpdate=(oldData)=>{
+    setFormData(oldData)
     handleClickOpen()
   }
+
+  //delelte
+const HandleDelete = (id) => {
+  let url = 'http://localhost:8080/test/hello/delete/' + id;
+  fetch(url)
+    .then(resp => resp.json())
+    .then(resp => UserTable())
+}
+
+  
 
  const handleFormSubmit=() =>{
   fetch('http://localhost:8080/test/hello/save',
@@ -44,19 +57,11 @@ const UserTable = () => {
     "Content-Type": 'application/json',
     "Accept": 'application/json'
    }}).then(resp=>resp.json()).then(resp=> {handleClose() 
-    console.log(resp)})  }
+    console.log(resp)
+    setFormData( initialValue)  }) 
+   }
   
-  
-   
-//delelte
-const HandleDelete = (id) => {
-  let url = 'http://localhost:8080/test/hello/delete/' + id;
-  fetch(url)
-    .then(resp => resp.json())
-    .then(resp => UserTable())
-}
-
-  const columns = [
+   const columns = [
     { field: 'id', headerName: 'ID' },
     { field: 'firstname', headerName: 'First Name' },
     { field: 'lastname', headerName: 'Last Name' },
@@ -67,27 +72,21 @@ const HandleDelete = (id) => {
       headerName: 'DeleteAction',
       renderCell: (params) => {
         return (
-
           <button style={{ backgroundcolor: "red", color: "black" }}
-
-            onClick={() => HandleDelete(params.id)}
-          >Delete</button>
-
-        );
+            onClick={() => HandleDelete(params.id)}>Delete</button>
+           );
+      }},
+      {
+        field:'Action2',headerName:'UpdateAction',
+        renderCell:(params)=>
+          <button variant="outlined" color="primary" onClick={()=>handleUpdate(params.oldData)}>Update</button>
+        
       }
-    },
-
-    {
-      field: 'Action2',
-      headerName: 'Update',
-      renderCell: (params) => {
-        return (
-          <button onClick={() => HandleUpdate(params.data)}>Update</button>
-
-        );
-      }
-    }
   ]
+    
+   
+
+  
 
   return (
     <div style={{ height: 700, width: '100%' }}>
