@@ -1,15 +1,30 @@
-import React from 'react';
-import { Component } from 'react/cjs/react.production.min';
-import './App.css';
-import { Routing } from './pages/componenets/routes';
-class App extends Component {
- render() {
-    return (
-      <div className="App">
-        {< Routing />}
- </div>
-      );
-      
+import React, { Component } from "react";
+//import {Component} from 'react/cjs/react.production.min';
+class App extends Component{
+constructor(props){
+    super(props);
+     this.state ={
+       
+    time: new Date().toLocaleTimeString()
+    } 
   }
-};
-export default App;
+    updateClock(){
+      this.setState({
+      time: new Date().toLocaleTimeString()
+      });
+      }
+      componentDidMount() {
+        this.intervalID = setInterval(() =>
+        this.updateClock(),
+        10000
+        );}
+        render() {
+          return (
+          <div className="Time">
+               <p><h1>{this.state.time}</h1>
+               <h2>this is from state </h2>
+               </p>
+          </div>
+          );}
+  }
+  export default App;
