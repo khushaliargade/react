@@ -11,11 +11,14 @@ function Login() {
 
     
     async function Log() {
+        console.log("mathod called ");
         console.warn("data", email, password)
-        let item = { email, password }
-        let result = await fetch('http://localhost:8080/test/hello/validateEmail/${email}', {
+        
+        if(email!=""){
+            let item2= { email }
+        let result = await fetch('http://localhost:8080/test/hello/validateEmail', {
             method: 'POST',
-            body: JSON.stringify({ item }),
+            body: JSON.stringify({item2}),
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
@@ -31,8 +34,8 @@ function Login() {
             navigate("/home")
 
         } else {
-           alert("enter correct")
-        }
+          // alert("enter correct")
+        }}
     }
     return (
         <div>
