@@ -1,8 +1,8 @@
 import React from 'react';
-import { Routes } from 'react-router-dom';
+// import { Routes } from 'react-router-dom';
 import { Component } from 'react/cjs/react.production.min';
 import './App.css';
-import {Routing}from './pages/componenets/routes';
+import { Routing }from './pages/componenets/routes';
 class App extends Component {
   
 

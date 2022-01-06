@@ -3,7 +3,7 @@ import { Header } from "./componenets/header";
 import { Footer } from "./componenets/footer";
 import { Navbar } from './componenets/navbar';
 //import { Calendar } from "react-calendar";
-import "react-calendar/dist/Calendar.css"
+// import "react-calendar/dist/Calendar.css"
 import "./componenets/style.css"
 import UserTable from "./componenets/usertable";
 import Hello from "./componenets/Hello";
