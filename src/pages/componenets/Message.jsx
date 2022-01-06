@@ -6,6 +6,7 @@ class Classc extends Component {
             message: 'Welcome visitor'
         }
     }
+
     changeMessage() {
         this.setState({
             message: 'Thank you for applying'

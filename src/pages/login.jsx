@@ -1,48 +1,39 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState } from 'react'
 import loginImg from "../assets/login.png"
-import "./componenets/style.css";
-//import { useNavigate } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-//import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+import "./componenets/style.css"
 
 function Login() {
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    //const navigate = useNavigate();
-    const history = useHistory();
-    useEffect (() => {
-        if (localStorage.getItem('user-info')){
-            history.push("/home")
-        }
-        else{
-            alert("enter correct email")
-        }
-        
-    },[])
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
+    
     async function Log() {
-
+        console.warn("data", email, password)
         let item = { email, password }
-        console.log(email,password)
+        let result = await fetch('http://localhost:8080/test/hello/validateEmail/${email}', {
+            method: 'POST',
+            body: JSON.stringify({ item }),
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
 
-       // if (email==item ) {
-            //navigate('/home');
-            let result = await fetch("http://localhost:8080/test/hello/validateEmail",
-                {
-                    method: 'POST',
-                    body: JSON.stringify(item),
-                    headers: {
-                        "Content-Type": 'application/json',
-                        "Accept": 'application/json'
+        });
+        
+        result = await result.json();
+        console.log(result);
+        console.log("data");
+        if (result.name) {
+           localStorage.setItem("user", JSON.stringify(result));
+            navigate("/home")
 
-                    }
-                })
-            result = await result.json()
-            console.log("result", result);
-       // }
+        } else {
+           alert("enter correct")
+        }
     }
-       
     return (
         <div>
             <img src={loginImg} alt="" />
@@ -54,6 +45,5 @@ function Login() {
         </div>
     )
 }
- 
-export default Login;
 
+export default Login;
