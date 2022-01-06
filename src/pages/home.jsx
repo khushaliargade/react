@@ -14,10 +14,10 @@ export class Home extends React.Component {
             <div>
                 <div>
                     <Header />
-                </div> 
+                </div>
                 <div>
-                    <Hello/></div>    
-            <div className="grid">
+                    <Hello /></div>
+                <div className="grid">
                     <div className="aside">
                         <Navbar />
                     </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 class RegComp extends Component {
     render() {
         console.log('Regular component render')
@@ -10,5 +9,4 @@ class RegComp extends Component {
         );
     }
 }
-
 export default RegComp;

@@ -2,21 +2,13 @@ import React, { useState } from 'react'
 import loginImg from "../assets/login.png"
 import { useNavigate } from 'react-router-dom'
 import "./componenets/style.css"
-
 function Login() {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
-
-    
     async function Log() {
-
         let user = { email }
-        console.log("***** THIS IS user ******" + { user })
-
         if (email !== '' && password !== '') {
-            navigate('/home');
             let result = await fetch("http://localhost:8080/test/hello/validateEmail",
                 {
                     method: 'POST',
@@ -24,11 +16,15 @@ function Login() {
                     headers: {
                         "Content-Type": 'application/json',
                         "Accept": 'application/json'
-
                     }
                 })
             result = await result.json()
-            console.log("result", result);
+            if (result.message === "email already exists") {
+                navigate('/home');
+            }
+            else {
+                alert("Invalid credentials");
+            }
         }
     }
     return (
@@ -42,5 +38,4 @@ function Login() {
         </div>
     )
 }
-
 export default Login;

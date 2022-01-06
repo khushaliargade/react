@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import PureCompo from './PureComponent';
 import RegComp from './RegComp';
-
 class ParentComp extends Component {
     constructor(props) {
         super(props)
-
-        this.state={
+        this.state = {
             name: 'vishwas'
         }
     }
     componentDidMount() {
         setInterval(() => {
             this.setState({
-                name:'vishwas'
+                name: 'vishwas'
             })
         }, 2000)
     }
@@ -22,11 +20,10 @@ class ParentComp extends Component {
         return (
             <div>
                 Parent components
-                <RegComp name={this.state.name}/>
-                <PureCompo name={this.state.name}/>
+                <RegComp name={this.state.name} />
+                <PureCompo name={this.state.name} />
             </div>
         );
     }
 }
-
 export default ParentComp;

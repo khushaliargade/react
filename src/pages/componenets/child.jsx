@@ -3,38 +3,36 @@ import { Component } from 'react/cjs/react.production.min';
 //import './App.css';
 //import { Routing } from './pages/componenets/routes';
 class Child extends Component {
-
   state = {
     name: 'peter'
   }
-  constructor(){
+  constructor() {
     super();
     this.state = {
       name: 'john'
     };
     console.log('child constructor');
   }
-  componentWillMount(){
+  componentWillMount() {
     console.log('child componentWillMount');
   }
-  componentDidMount(){
+  componentDidMount() {
     console.log('child componentDidMount');
   }
-  componentWillReceiveProps(){
+  componentWillReceiveProps() {
     console.log('child componentWillReceiveProps');
   }
-  shouldComponentUpdate(nextProps,nextState){
+  shouldComponentUpdate(nextProps, nextState) {
     console.log('child componentUpdate');
-      return false;
+    return false;
   }
-
   render() {
     console.log('Child render');
     return (
       <div className="App">
-      Child name:{this.props.name}
-       {/*< Routing /*/}
-     </div>
+        Child name:{this.props.name}
+        {/*< Routing /*/}
+      </div>
     );
   }
 };

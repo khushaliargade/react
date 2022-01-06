@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-
 class Lifecycle extends Component {
-
-    state ={
+    state = {
         name: "peter"
     }
-
-    constructor(){
+    constructor() {
         super();
         this.state = {
             name: "john"
@@ -22,5 +19,4 @@ class Lifecycle extends Component {
         );
     }
 }
-
 export default Lifecycle;

@@ -2,20 +2,15 @@ import React, { useState } from 'react';
 import registerImg from "../assets/register.png"
 import "./componenets/style.css";
 import { useNavigate } from 'react-router-dom';
-
 function Register() {
-
     const [firstname, setFirstName] = useState("")
     const [lastname, setLastName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate();
-
     async function signUp() {
-
         let item = { firstname, lastname, email, password }
         console.log("***** THIS IS ITEM ******" + { item })
-
         if (firstname !== '' && lastname !== '' && email !== '' && password !== '') {
             navigate('/home');
             let result = await fetch("http://localhost:8080/test/hello/save",
@@ -25,7 +20,6 @@ function Register() {
                     headers: {
                         "Content-Type": 'application/json',
                         "Accept": 'application/json'
-
                     }
                 })
             result = await result.json()
@@ -46,4 +40,3 @@ function Register() {
     )
 }
 export default Register;
-

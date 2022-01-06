@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 class user extends Component {
     componentWillUnmount() {
-     console.log('componentWillUnmount');
+        console.log('componentWillUnmount');
     }
     render() {
         return (
@@ -10,5 +9,4 @@ class user extends Component {
         );
     }
 }
-
 export default user;
