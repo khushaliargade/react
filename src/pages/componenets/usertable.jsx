@@ -1,10 +1,18 @@
 import { useEffect , useState} from "react";
 import { getUsers } from "../../service/api"
 import { TableCell,TableRow,Table,TableBody,TableHead , makeStyles} from  "@material-ui/core"
+import "./style.css"
 
 const useStyle=makeStyles({
   table: {
     width:'90%'
+  },
+  thead:{
+    '& > *':{
+      background:'#000000',
+      color:'#FFFFFF',
+      fontsize:'20'
+    }
   }
 })
 
@@ -30,7 +38,7 @@ const UserTable = () => {
       <h2>This is user table</h2>
       <Table className={classes.table}>
         <TableHead>
-          <TableRow>
+          <TableRow className={classes.thead}>
             <TableCell>Id</TableCell>
             <TableCell>FirstName</TableCell>
             <TableCell>LastName</TableCell>
@@ -40,7 +48,7 @@ const UserTable = () => {
         </TableHead>
         <TableBody>
           {
-            users.map(user =>{
+            users.map(user =>(
               <TableRow>
                 <TableCell>{user.sid}</TableCell>
                 <TableCell>{user.firstname}</TableCell>
@@ -48,7 +56,8 @@ const UserTable = () => {
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.password}</TableCell>
               </TableRow>
-            })
+            )
+            )
           }
         </TableBody>
       </Table>
