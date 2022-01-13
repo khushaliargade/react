@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 import { updateUser, getUsersById } from "../../service/api"
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
-import axios from "axios"
-
 
 
 const useStyle = makeStyles({
@@ -34,15 +32,15 @@ const UpdateUser = () => {
         setUser(response.data);
     }
 
-    // const updateUserData = async (id) => {
-    //     const response = await updateUser(id,user);
-    //     setUser(response.data);
-    // }
-    
-    const updateUserData = async(id) => {
-        const url = 'http://localhost:8080/test/hello/update/'+{id};
-        return  await axios.put(url);
+    const updateUserData = async () => {
+        const response = await updateUser(id,user);
+        setUser(response.data);
     }
+    
+    // const updateUserData = async(sid) => {
+    //     const url = 'http://localhost:8080/test/hello/update/'+sid;
+    //     return  await axios.put(url);
+    // }
 
 
 
@@ -70,7 +68,7 @@ const UpdateUser = () => {
             {/* <TypoGraphy>Update User</TypoGraphy> */}
             <FormControl>
                 <InputLabel>FirstName</InputLabel>
-                <Input  onChange={(e) => onChange(e)} firstname='firstname'  value={id}/>
+                <Input  onChange={(e) => onChange(e)} firstname='firstname'  value={firstname}/>
             </FormControl>
             <FormControl>
                 <InputLabel>LastName</InputLabel>
@@ -84,7 +82,7 @@ const UpdateUser = () => {
                 <InputLabel>Password</InputLabel>
                 <Input  onChange={(e) =>onChange(e)} password='password' value={password} />
             </FormControl>
-            <Button variant="contained" onClick={() => updateUserData()} color="primary">Update</Button>
+            <Button variant="contained" onClick={() => updateUserData()} color="primary">Update {id}</Button>
 
         </FormGroup>
     )

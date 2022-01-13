@@ -12,17 +12,17 @@ export const getUsers = async () => {
 // }
 
 //for onclick of update button we get user details
-export const getUsersById = async (sid) => {
-    const url = 'http://localhost:8080/test/hello/getusers/' + sid;
+export const getUsersById = async (id) => {
+    const url = 'http://localhost:8080/test/hello/getusers/' + id;
     return await axios.get(url);
 }
 //for update user
-export const updateUser = async (sid,user) => {
-    const url = 'http://localhost:8080/test/hello/update/'+{sid};
+export const updateUser = async (id,user) => {
+    const url = 'http://localhost:8080/test/hello/update/'+id;
     return await axios.put(url,user);
 }
 //for delete user
-export const deleteUser = async (sid) => {
-    const url = 'http://localhost:8080/test/hello/delete/'+sid;
+export const deleteUser = async (id) => {
+    const url = 'http://localhost:8080/test/hello/delete/'+id;
     return await axios.delete(url)
 }
