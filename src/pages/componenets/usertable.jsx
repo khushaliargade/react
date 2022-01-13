@@ -34,8 +34,8 @@ const UserTable = () => {
   }
 
   //for delete data
-  const deleteUserData = async (id) => {
-    await deleteUser(id);
+  const deleteUserData = async (sid) => {
+    await deleteUser(sid);
     getAllUsers();
   }
 
@@ -51,6 +51,7 @@ const UserTable = () => {
             <TableCell>Email</TableCell>
             <TableCell>Password</TableCell>
             <TableCell></TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
@@ -63,8 +64,8 @@ const UserTable = () => {
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.password}</TableCell>
                 <TableCell>
-                  <Button variant="contained" color="primary" component={Link} to={'/update/' + user.id}>Update</Button>
-                  <Button variant="contained" color="secondary" onClick={() => deleteUserData(user.id)} >Delete</Button>
+                  <Button variant="contained" color="primary" style={{marginTop:10}} component={Link} to={'/update/'+user.sid}>Update</Button>
+                  <Button variant="contained" color="secondary" onClick={() => deleteUserData(user.sid)} >Delete</Button>
                 </TableCell>
               </TableRow>
             )

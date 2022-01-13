@@ -7,7 +7,7 @@ import { Navbar } from './componenets/navbar';
 import "./componenets/style.css"
 import UserTable from "./componenets/usertable";
 //import Hello from "./componenets/Hello";
-//import Lifecycle from "./componenets/Lifecycle";
+//import AddUser from "./componenets/AddUser";
 export class Home extends React.Component {
     render() {
         return (
@@ -15,6 +15,10 @@ export class Home extends React.Component {
                 <div>
                     <Header />
                 </div>
+                {/* <div>
+                    <AddUser/>
+                </div> */}
+
                 {/* <div>
                     <Hello /></div> */}
                 <div className="grid">
