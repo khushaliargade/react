@@ -15,11 +15,20 @@ const useStyle = makeStyles({
     }
 })
 
-const initialValues = { firstname: '',  lastname: '', email: '', password: '' }
+const initialValues = { firstName: '',  lastName: '', email: '', password: '' }
 
-const UpdateUser = () => {
+ const UpdateUser = () => {
+     
+   
     const [user, setUser] = useState(initialValues);
-    const { firstname, lastname, email, password } = user;
+    const[firstName,setFirstName]=useState("");
+    const[lastName,setLastName]=useState("");
+    const[email,setEmail]=useState("");
+    const[password,setPassword]=useState("");
+
+ 
+
+    
     const { id } = useParams();
     const classes = useStyle();
 
@@ -34,7 +43,7 @@ const UpdateUser = () => {
 
     const updateUserData = async () => {
         const response = await updateUser(id,user);
-        setUser(response.data);
+        console.log(response);
     }
     
     // const updateUserData = async(sid) => {
@@ -45,47 +54,34 @@ const UpdateUser = () => {
 
 
     const onChange = (e) => {
-        //console.log(e.target.value)
         setUser({ ...user, [e.target.firstname]: e.target.value })
-    }
+        }
+    
+        return (
+            <FormGroup className={classes.container}>
+                {/* <TypoGraphy>Update User</TypoGraphy> */}
+                <FormControl>
+                    <InputLabel>FirstName</InputLabel>
+                    <Input  onChange={(e) => onChange(e)} firstname='firstname'  value={firstName}/>
+                </FormControl>
+                <FormControl>
+                    <InputLabel>LastName</InputLabel>
+                    <Input  onChange={(e) => onChange(e)} lastname='lastname' value={lastName} />
+                </FormControl>
+                <FormControl>
+                    <InputLabel>Email</InputLabel>
+                    <Input  onChange={(e) => onChange( e)} email='email'  value={email}/>
+                </FormControl>
+                <FormControl>
+                    <InputLabel>Password</InputLabel>
+                    <Input  onChange={(e) =>onChange(e)} password='password' value={password} />
+                </FormControl>
+                <Button variant="contained" onClick={() => updateUserData()} color="primary">Update data {id}</Button>
+    
+            </FormGroup>
+        )
+     }
 
 
-//    const onChange = async (event) => {
-//         if (event.target) {
-//           event.preventDefault();
-//           const { target: { name, value }, } = event;
-//           console.log('firstname ', firstname);
-//           this.setState({
-//             user: {
-//               ...this.state.user,
-//               [firstname]: value,
-//             },
-//           });
-//         }
 
-    return (
-        <FormGroup className={classes.container}>
-            {/* <TypoGraphy>Update User</TypoGraphy> */}
-            <FormControl>
-                <InputLabel>FirstName</InputLabel>
-                <Input  onChange={(e) => onChange(e)} firstname='firstname'  value={firstname}/>
-            </FormControl>
-            <FormControl>
-                <InputLabel>LastName</InputLabel>
-                <Input  onChange={(e) => onChange(e)} lastname='lastname' value={lastname} />
-            </FormControl>
-            <FormControl>
-                <InputLabel>Email</InputLabel>
-                <Input  onChange={(e) => onChange(e)} email='email'  value={email}/>
-            </FormControl>
-            <FormControl>
-                <InputLabel>Password</InputLabel>
-                <Input  onChange={(e) =>onChange(e)} password='password' value={password} />
-            </FormControl>
-            <Button variant="contained" onClick={() => updateUserData()} color="primary">Update {id}</Button>
-
-        </FormGroup>
-    )
-}
-
-export default UpdateUser;
+  export default UpdateUser;

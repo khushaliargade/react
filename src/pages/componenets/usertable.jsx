@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getUsers, deleteUser } from "../../service/api"
 import { TableCell, TableRow, Table, TableBody, TableHead, makeStyles, Button } from "@material-ui/core"
 import { Link } from 'react-router-dom'
+import { getUsersById } from "../../service/api"
 
 const useStyle = makeStyles({
   table: {
@@ -19,7 +20,26 @@ const useStyle = makeStyles({
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const classes = useStyle();
+
+  useEffect(() => {
+    loadUserData();
+            }, []);
+        
+   
+    const loadUserData = async (id) => {
+        const response = await getUsersById(id);
+        setUsers(...response.users);
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setPassword('')
+    }
+
 
   useEffect(() => {
     getAllUsers();
@@ -51,6 +71,7 @@ const UserTable = () => {
             <TableCell>Email</TableCell>
             <TableCell>Password</TableCell>
             <TableCell></TableCell>
+            <TableCell></TableCell>
             
           </TableRow>
         </TableHead>
@@ -64,8 +85,11 @@ const UserTable = () => {
                 <TableCell>{user.email}</TableCell>
                 <TableCell>{user.password}</TableCell>
                 <TableCell>
-                  <Button variant="contained" color="primary" style={{marginTop:10}} component={Link} to={'/update/'+user.id}>Update</Button>
+                  <Button variant="contained" color="primary"  component={Link} to={'/update/'+user.id} onClick={loadUserData}>Update</Button>
+                  </TableCell>
+                  <TableCell>
                   <Button variant="contained" color="secondary" onClick={() => deleteUserData(user.id)} >Delete</Button>
+              
                 </TableCell>
               </TableRow>
             )
