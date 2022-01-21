@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes } from 'react-router-dom';
+
 import { Component } from 'react/cjs/react.production.min';
 import './App.css';
 import { Routing } from './pages/componenets/routes';
